@@ -1,7 +1,5 @@
 # SwanMon
 
-![image](./public/images/swanmon-logo-color.png)
-
 I am using this repository and project as a dev practice playground. The app is a
 planner to work on on projects, goals, tasks, etc.
 
@@ -14,3 +12,5 @@ a **swan** _monitoring_ the things you and your team work on.
 - SQL master
 - Get comfy with authentication
 - Improve front-end efficiency
+
+![image](./public/images/swanmon-logo-color.png)
