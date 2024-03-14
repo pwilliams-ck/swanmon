@@ -1,5 +1,7 @@
 # SwanMon
 
+![image](./public/images/swanmon-logo-color.png)
+
 I am using this repository and project as a dev practice playground. The app is a
 planner to work on on projects, goals, tasks, etc.
 
