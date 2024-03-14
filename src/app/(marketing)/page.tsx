@@ -30,7 +30,7 @@ export default function Hero() {
           />
         </div>
         <h1 className="text-3xl md:text-6xl text-center text-neutral-800">
-          SwanMon helps your team
+          SwanMon helps your team!!!
         </h1>
         <Button className="text-3xl md:text-6xl bg-gradient-to-r from-sky-400 to-blue-800 my-6 py-6 md:py-10 hover:bg-gradient-to-r hover:from-sky-300 hover:to-blue-500">
           <Link href="/create-account">prepare for launch.</Link>
