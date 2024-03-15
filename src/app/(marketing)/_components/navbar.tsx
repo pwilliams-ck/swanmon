@@ -1,6 +1,6 @@
-import { SwanMonLogo } from "@/components/swanmon-logo"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { SwanMonLogo } from '@/components/swanmon-logo'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export function Navbar() {
   return (

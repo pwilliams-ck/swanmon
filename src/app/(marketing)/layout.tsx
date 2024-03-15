@@ -1,4 +1,5 @@
-import { Navbar } from "./_components/navbar"
+import { Footer } from './_components/footer'
+import { Navbar } from './_components/navbar'
 
 export default function LandingLayout({
   children
@@ -9,7 +10,7 @@ export default function LandingLayout({
     <div className="h-full bg-zinc-800 text-secondary">
       <Navbar />
       <main className="pt-40 pb-20 bg-zinc-800">{children}</main>
-      {/* Footer */}
+      <Footer />
     </div>
   )
 }
