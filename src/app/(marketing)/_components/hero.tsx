@@ -1,14 +1,14 @@
-import Link from "next/link"
-import localFont from "next/font/local"
+import Link from 'next/link'
+import localFont from 'next/font/local'
 
-import { cn } from "@/services/utils"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { cn } from '@/services/utils'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
-import swanMonLogo from "../../../../public/images/swanmon-logo-color.png"
+import swanMonLogo from '../../../../public/swanmon-logo-color.png'
 
 const headingFont = localFont({
-  src: "../../../../public/fonts/font.woff2"
+  src: '../../../../public/fonts/font.woff2'
 })
 
 export function Hero() {
@@ -16,7 +16,7 @@ export function Hero() {
     <div className="flex items-center justify-center flex-col">
       <div
         className={cn(
-          "flex items-center justify-center flex-col",
+          'flex items-center justify-center flex-col',
           headingFont.className
         )}
       >
@@ -41,7 +41,7 @@ export function Hero() {
       </div>
       <div
         className={
-          "text-sm md:text-xl my-2 text-neutral-400 max-w-xs md:max-w-2xl text-center mx-auto"
+          'text-sm md:text-xl my-2 text-neutral-400 max-w-xs md:max-w-2xl text-center mx-auto'
         }
       >
         SwanMon turns stress into success, streamlining projects to meet even
