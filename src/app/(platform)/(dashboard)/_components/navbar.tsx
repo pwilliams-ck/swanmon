@@ -7,7 +7,7 @@ import { MobileSidebar } from './mobile-sidebar'
 
 const Navbar = () => {
   return (
-    <nav className="fixed z-50 top-0 w-full h-18 px-4 border-b shadow-lg bg-white flex items-center">
+    <nav className="fixed z-50 top-0 w-full h-14 px-4 border-b shadow-lg bg-white flex items-center">
       <MobileSidebar />
       <div className="flex items-center gap-x-4">
         <div className="hidden md:flex">

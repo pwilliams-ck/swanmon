@@ -13,7 +13,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Board {
+    id        String   @id @default(uuid())
+    title     String
+  }
+
 model Task {
     id        String    @id @default(uuid())
     title     String
   }
+
