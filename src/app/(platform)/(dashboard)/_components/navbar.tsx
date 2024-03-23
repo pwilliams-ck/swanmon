@@ -13,7 +13,7 @@ const Navbar = () => {
         </div>
         <Button
           variant="primary"
-          className="rounded hidden md:block h-auto py-1.5 px-2"
+          className="rounded hidden md:block h-auto ml-2 py-1.5 px-3"
         >
           Create
         </Button>
