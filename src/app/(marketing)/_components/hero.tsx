@@ -29,31 +29,27 @@ export function Hero() {
             width={300}
           />
         </div>
-        <h1 className="text-3xl md:text-6xl text-center text-secondary">
+        <h1 className="text-3xl md:text-6xl text-center text-primary">
           SwanMon helps your team
         </h1>
         <Button
-          className="text-3xl md:text-6xl text-secondary bg-gradient-to-r from-lime-500 to-teal-800 my-6 py-6 md:py-10 hover:bg-gradient-to-r hover:from-lime-600 hover:to-teal-900"
+          className="rounded-lg text-3xl md:text-6xl text-secondary bg-gradient-to-r from-lime-500 to-teal-800 my-6 py-6 md:py-10 hover:bg-gradient-to-r hover:from-lime-300 hover:to-teal-600"
           asChild
         >
-          <Link href="/create-account">prepare for launch.</Link>
+          <Link href="/sign-up">prepare for launch.</Link>
         </Button>
       </div>
       <div
         className={
-          'text-sm md:text-xl my-2 text-neutral-400 max-w-xs md:max-w-2xl text-center mx-auto'
+          'text-sm md:text-xl my-2 text-neutral-500 max-w-xs md:max-w-2xl text-center mx-auto'
         }
       >
         SwanMon turns stress into success, streamlining projects to meet even
         the strictest deadlines with ease. Embrace efficient, tranquil
-        collaboration and achieve your goals with grace and keep the chaos at
-        bay with SwanMon.
+        collaboration and achieve your project goals with grace.
       </div>
-      <Button
-        className="text-sm sm:text-md md:text-xl lg:text-2xl xl:text-3xl text-primary p-2 sm:p-4 md:p-6 lg:p-8 mt-4 bg-zinc-200 hover:bg-zinc-200/80"
-        asChild
-      >
-        <Link href="/create-account">Sign-up Now</Link>
+      <Button className="rounded-lg text-3xl p-8 mt-8" asChild>
+        <Link href="/sign-up">Sign-up Free!</Link>
       </Button>
     </div>
   )

@@ -15,9 +15,7 @@ export function SwanMonLogo() {
     <Link href="/">
       <div className="hover:opacity-75 transition items-center gap-x-2 hidden md:flex">
         <Image src={swanMonLogo} alt="SwanMon Logo" height={70} width={70} />
-        <p className={cn('text-lg text-neutral-200 pb-1', headingFont)}>
-          SwanMon
-        </p>
+        <p className={cn('text-lg text-primary pb-1', headingFont)}>SwanMon</p>
       </div>
     </Link>
   )

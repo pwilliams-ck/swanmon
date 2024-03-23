@@ -7,9 +7,9 @@ export default function LandingLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="h-full bg-zinc-800 text-secondary">
+    <div className="h-full text-secondary bg-zinc-50">
       <Navbar />
-      <main className="pt-40 pb-20 bg-zinc-800">{children}</main>
+      <main className="pt-40 pb-20">{children}</main>
       <Footer />
     </div>
   )

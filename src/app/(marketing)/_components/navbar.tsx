@@ -4,14 +4,14 @@ import Link from 'next/link'
 
 export function Navbar() {
   return (
-    <div className="fixed top-0 w-full h-18 px-4 flex items-center">
+    <div className="fixed top-0 w-full h-18 px-4 bg-white border-b shadow-lg flex items-center">
       <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
         <SwanMonLogo />
         <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
-          <Button variant="ghost">
+          <Button>
             <Link href="/login">Login</Link>
           </Button>
-          <Button variant="ghost">
+          <Button>
             <Link href="/sign-up">Sign-up Free</Link>
           </Button>
         </div>
