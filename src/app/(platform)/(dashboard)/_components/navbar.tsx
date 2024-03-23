@@ -1,9 +1,8 @@
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
-import { Plus } from 'lucide-react'
+import { FileSpreadsheet, Plus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { SwanMonLogo } from '@/components/swanmon-logo'
-
 import { MobileSidebar } from './mobile-sidebar'
 
 const Navbar = () => {
@@ -16,9 +15,10 @@ const Navbar = () => {
         </div>
         <Button
           variant="primary"
-          className="rounded hidden md:block h-auto ml-2 py-1.5 px-3"
+          className="rounded hidden md:flex h-auto ml-2 py-1.5 px-3"
         >
-          Create
+          <span className="flex mr-2 ">Add</span>
+          <FileSpreadsheet className="flex h-4 w-4" />
         </Button>
         <Button
           variant="primary"

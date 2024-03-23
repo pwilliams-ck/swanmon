@@ -52,7 +52,15 @@ export const Sidebar = ({ storageKey = 'sw-sidebar-state' }: SidebarProps) => {
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
     return (
       <>
-        <Skeleton />
+        <div className="flex items-center justify-between mb-2">
+          <Skeleton className="h-10 w-[50%]" />
+          <Skeleton className="h-10 w-10" />
+        </div>
+        <div className="space-y-2">
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+        </div>
       </>
     )
   }
@@ -65,7 +73,7 @@ export const Sidebar = ({ storageKey = 'sw-sidebar-state' }: SidebarProps) => {
           asChild
           type="button"
           size="icon"
-          variant-="ghost"
+          variant="ghost"
           className="ml-auto"
         >
           <Link href="/select-org">
