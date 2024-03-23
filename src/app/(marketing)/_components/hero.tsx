@@ -27,6 +27,7 @@ export function Hero() {
             alt="CloudKey Platform Logo"
             height={0}
             width={300}
+            priority
           />
         </div>
         <h1 className="text-3xl md:text-6xl text-center text-primary">
