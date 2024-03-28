@@ -21,7 +21,9 @@ export function SwanMonLogo() {
           width={70}
           priority
         />
-        <p className={cn('text-lg text-primary pb-1', headingFont)}>SwanMon</p>
+        <p className={cn('text-xl text-primary', headingFont.className)}>
+          SwanMon
+        </p>
       </div>
     </Link>
   )
