@@ -30,7 +30,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     })
   } catch (error) {
     return {
-      error: 'Internal error.'
+      error: 'Error, please try again later.'
     }
   }
 
