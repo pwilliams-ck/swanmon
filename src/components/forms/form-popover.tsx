@@ -1,26 +1,27 @@
-'use client'
+'use client';
 
 import {
   Popover,
   PopoverClose,
   PopoverContent,
   PopoverTrigger
-} from '@/components/ui/popover'
-import { useAction } from '@/hooks/use-action'
-import { createBoard } from '@/services/actions/create-board'
+} from '@/components/ui/popover';
+import { useAction } from '@/hooks/use-action';
+import { createBoard } from '@/services/actions/create-board';
 
-import { FormInput } from './form-input'
-import { FormSubmit } from './form-submit'
-import { Button } from '../ui/button'
-import { X } from 'lucide-react'
-import { toast } from 'sonner'
+import { FormInput } from './form-input';
+import { FormSubmit } from './form-submit';
+import { Button } from '../ui/button';
+import { X } from 'lucide-react';
+import { toast } from 'sonner';
+import { FormPicker } from './form-picker';
 
 type FormPopoverProps = {
-  children?: React.ReactNode
-  side?: 'left' | 'right' | 'top' | 'bottom'
-  align?: 'start' | 'center' | 'end'
-  sideOffset?: number
-}
+  children?: React.ReactNode;
+  side?: 'left' | 'right' | 'top' | 'bottom';
+  align?: 'start' | 'center' | 'end';
+  sideOffset?: number;
+};
 
 export const FormPopover = ({
   children,
@@ -30,26 +31,28 @@ export const FormPopover = ({
 }: FormPopoverProps) => {
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
-      console.log({ data })
+      console.log({ data });
       toast.success('Board created', {
         className: 'mt-10',
         position: 'top-right'
-      })
+      });
     },
     onError: (error) => {
-      console.log(error)
+      console.log(error);
       toast.error(error, {
         className: 'mt-10',
         position: 'top-right'
-      })
+      });
     }
-  })
+  });
 
   const onSubmit = (formData: FormData) => {
-    const title = formData.get('title') as string
+    const title = formData.get('title') as string;
+    const image = formData.get('image') as string;
 
-    execute({ title })
-  }
+    console.log({ image });
+    // execute({ title });
+  };
 
   return (
     <Popover>
@@ -73,6 +76,7 @@ export const FormPopover = ({
         </PopoverClose>
         <form action={onSubmit} className="space-y-4">
           <div className="space-y-4">
+            <FormPicker id="image" errors={fieldErrors} />
             <FormInput
               id="title"
               label="Board title"
@@ -84,5 +88,5 @@ export const FormPopover = ({
         </form>
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};
