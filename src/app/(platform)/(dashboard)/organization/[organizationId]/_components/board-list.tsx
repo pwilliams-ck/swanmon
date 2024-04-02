@@ -39,7 +39,7 @@ export const BoardList = async () => {
             className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm h-full w-ful p-2 overflow-hidden"
             style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
           >
-            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
+            <div className="absolute inset-0 bg-black/15 group-hover:bg-black/40 transition" />
             <p className="relative font-semibold text-white">{board.title}</p>
           </Link>
         ))}
@@ -48,7 +48,7 @@ export const BoardList = async () => {
             role="button"
             className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75"
           >
-            <p className="text-sm">Create new board</p>
+            <p className="text-sm">Add new board</p>
             <span>3 remaining</span>
             <Hint
               sideOffset={40}
