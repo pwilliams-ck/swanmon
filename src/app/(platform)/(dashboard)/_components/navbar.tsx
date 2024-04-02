@@ -1,9 +1,10 @@
-import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
-import { FileSpreadsheet, Plus } from 'lucide-react'
+import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
+import { FileSpreadsheet, Plus } from 'lucide-react';
 
-import { Button } from '@/components/ui/button'
-import { SwanMonLogo } from '@/components/swanmon-logo'
-import { MobileSidebar } from './mobile-sidebar'
+import { Button } from '@/components/ui/button';
+import { SwanMonLogo } from '@/components/swanmon-logo';
+import { MobileSidebar } from './mobile-sidebar';
+import { FormPopover } from '@/components/forms/form-popover';
 
 const Navbar = () => {
   return (
@@ -13,20 +14,24 @@ const Navbar = () => {
         <div className="hidden md:flex">
           <SwanMonLogo />
         </div>
-        <Button
-          variant="primary"
-          className="rounded hidden md:flex h-auto ml-2 py-1.5 px-3"
-        >
-          <span className="flex mr-2 ">Add</span>
-          <FileSpreadsheet className="flex h-4 w-4" />
-        </Button>
-        <Button
-          variant="primary"
-          size="sm"
-          className="rounded block md:hidden m-5"
-        >
-          <Plus className="h-4 w-4" />
-        </Button>
+        <FormPopover align="start" side="bottom" sideOffset={18}>
+          <Button
+            variant="primary"
+            className="rounded hidden md:flex h-auto ml-2 py-1.5 px-3"
+          >
+            <span className="flex mr-2 ">Add</span>
+            <FileSpreadsheet className="flex h-4 w-4" />
+          </Button>
+        </FormPopover>
+        <FormPopover>
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded block md:hidden m-5"
+          >
+            <Plus className="h-4 w-4" />
+          </Button>
+        </FormPopover>
       </div>
       <div className="ml-auto m-2 flex items-center gap-x-4">
         <OrganizationSwitcher
@@ -58,7 +63,7 @@ const Navbar = () => {
         />
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
