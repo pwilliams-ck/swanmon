@@ -6,8 +6,8 @@ export const CreateBoard = z.object({
       required_error: 'Title is required',
       invalid_type_error: 'Title is required'
     })
-    .min(3, {
-      message: 'Title must be 3 or more characters'
+    .min(1, {
+      message: 'Must be 1 or more characters'
     }),
   image: z.string({
     required_error: 'Image is required',

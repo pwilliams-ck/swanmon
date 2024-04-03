@@ -8,15 +8,16 @@ import { FormInput } from '@/components/forms/form-input';
 import { updateBoard } from '@/services/actions/update-board';
 import { useAction } from '@/hooks/use-action';
 import { toast } from 'sonner';
+import { FormErrors } from '@/components/forms/form-errors';
 
 type BoardTitleFormProps = {
   data: Board;
 };
 
 export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
-  const { execute } = useAction(updateBoard, {
+  const { execute, fieldErrors } = useAction(updateBoard, {
     onSuccess: (data) => {
-      toast.success(`Board name "${data.title}" updated!`, {
+      toast.success(`Renamed to "${data.title}"`, {
         className: 'mt-10',
         position: 'top-right'
       });
@@ -73,8 +74,9 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
           ref={inputRef}
           id="title"
           onBlur={onBlur}
+          errors={fieldErrors}
           defaultValue={title}
-          className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-none"
+          className="fill text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-none"
         />
       </form>
     );
