@@ -1,15 +1,15 @@
-import Link from 'next/link'
-import localFont from 'next/font/local'
+import Link from 'next/link';
+import localFont from 'next/font/local';
 
-import { cn } from '@/services/utils'
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import { cn } from '@/services/utils';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
-import swanMonLogo from '../../../../public/swanmon-logo-color.png'
+import swanMonLogo from '../../../../public/swanmon-logo-color.png';
 
 const headingFont = localFont({
   src: '../../../../public/fonts/font.woff2'
-})
+});
 
 export function Hero() {
   return (
@@ -53,5 +53,5 @@ export function Hero() {
         <Link href="/sign-up">Sign-up Free!</Link>
       </Button>
     </div>
-  )
+  );
 }

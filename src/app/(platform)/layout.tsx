@@ -1,5 +1,5 @@
-import { Toaster } from '@/components/ui/sonner'
-import { ClerkProvider } from '@clerk/nextjs'
+import { Toaster } from '@/components/ui/sonner';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,7 +7,7 @@ const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       <Toaster />
       {children}
     </ClerkProvider>
-  )
-}
+  );
+};
 
-export default PlatformLayout
+export default PlatformLayout;

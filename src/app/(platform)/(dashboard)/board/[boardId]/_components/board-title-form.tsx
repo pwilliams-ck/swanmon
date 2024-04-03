@@ -16,12 +16,18 @@ type BoardTitleFormProps = {
 export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
   const { execute } = useAction(updateBoard, {
     onSuccess: (data) => {
-      toast.success(`Board "${data.title}" updated!`);
+      toast.success(`Board name "${data.title}" updated!`, {
+        className: 'mt-10',
+        position: 'top-right'
+      });
       setTitle(data.title);
       disableEditing();
     },
     onError: (error) => {
-      toast.error(error);
+      toast.error(error, {
+        className: 'mt-10',
+        position: 'top-right'
+      });
     }
   });
 
