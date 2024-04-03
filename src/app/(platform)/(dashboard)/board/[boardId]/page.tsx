@@ -23,18 +23,18 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
       board: {
         orgId
       }
+    },
+    include: {
+      cards: {
+        orderBy: {
+          order: 'asc'
+        }
+      }
+    },
+    orderBy: {
+      order: 'asc'
     }
   });
-  include: {
-    cards: {
-      orderBy: {
-        order: 'asc';
-      }
-    }
-  }
-  orderBy: {
-    order: 'asc';
-  }
 
   return (
     <div className="p-4 h-full overflow-x-auto">
