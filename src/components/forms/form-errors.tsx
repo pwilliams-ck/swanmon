@@ -14,13 +14,10 @@ export const FormErrors = ({ id, errors }: FormErrorsProps) => {
     <div
       id={`${id}-error`}
       aria-live="polite"
-      className="mt-2 text-sm text-rose-500"
+      className="text-sm text-rose-500"
     >
       {errors?.[id]?.map((error: string) => (
-        <div
-          key={error}
-          className="flex items-center font-medium p-2 rounded-sm"
-        >
+        <div key={error} className="flex items-center font-medium rounded-sm">
           <XCircle className="h-4 w-4 mr-2" />
           {error}
         </div>

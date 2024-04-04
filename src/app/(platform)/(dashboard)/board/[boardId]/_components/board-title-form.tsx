@@ -76,7 +76,7 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
           onBlur={onBlur}
           errors={fieldErrors}
           defaultValue={title}
-          className="fill text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-none"
+          className="fill text-xl font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-white"
         />
       </form>
     );
@@ -86,7 +86,7 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
     <Button
       onClick={enableEditing}
       variant="transparent"
-      className="font-bold text-lg h-auto w-auto p-1 px-2"
+      className="font-bold text-xl h-auto w-auto p-1 px-2"
     >
       {title}
     </Button>
