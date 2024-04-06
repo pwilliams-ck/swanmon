@@ -8,7 +8,7 @@ is a **swan** _monitoring_ the things you and your team work on.
 
 ## Goals
 
-- Git good at Git
+- Git gud at Git
 - SQL master
 - Learn Clerk authentication
 - Improve front-end efficiency
