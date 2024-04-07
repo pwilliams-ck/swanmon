@@ -38,7 +38,7 @@ export const ListForm = () => {
     onSuccess: (data) => {
       toast.success(`List "${data.title}" created`, {
         className: 'mt-10',
-        position: 'top-right'
+        position: 'top-right',
       });
       disableEditing();
       router.refresh();
@@ -46,9 +46,9 @@ export const ListForm = () => {
     onError: (error) => {
       toast.error(error, {
         className: 'mt-10',
-        position: 'top-right'
+        position: 'top-right',
       });
-    }
+    },
   });
 
   const onKeyDown = (e: KeyboardEvent) => {
@@ -66,7 +66,7 @@ export const ListForm = () => {
 
     execute({
       title,
-      boardId
+      boardId,
     });
   };
 
