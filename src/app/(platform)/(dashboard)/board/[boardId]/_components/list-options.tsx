@@ -6,12 +6,15 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-  PopoverClose
+  PopoverClose,
 } from '@/components/ui/popover';
+import { useAction } from '@/hooks/use-action';
+import { deleteList } from '@/services/actions/delete-list';
 import { Button } from '@/components/ui/button';
 import { MoreHorizontal, X } from 'lucide-react';
 import { FormSubmit } from '@/components/forms/form-submit';
 import { Separator } from '@radix-ui/react-separator';
+import { toast } from 'sonner';
 
 type ListOptionsProps = {
   data: List;
@@ -19,6 +22,28 @@ type ListOptionsProps = {
 };
 
 export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
+  const { execute: executeDelete } = useAction(deleteList, {
+    onSuccess: (data) => {
+      toast.success(`List "${data.title}" deleted`, {
+        className: 'mt-10',
+        position: 'top-right',
+      });
+    },
+    onError: (error) => {
+      toast.error(error, {
+        className: 'mt-10',
+        position: 'top-right',
+      });
+    },
+  });
+
+  const onDelete = (formData: FormData) => {
+    const id = formData.get('id') as string;
+    const boardId = formData.get('boardId') as string;
+
+    executeDelete({ id, boardId });
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -56,7 +81,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
           </FormSubmit>
         </form>
         <Separator />
-        <form>
+        <form action={onDelete}>
           <input hidden name="id" id="id" value={data.id} />
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit

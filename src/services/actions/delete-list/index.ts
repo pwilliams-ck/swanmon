@@ -2,7 +2,6 @@
 
 import { auth } from '@clerk/nextjs';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
 import { db } from '@/services/db';
 
@@ -15,7 +14,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
   if (!userId || !orgId) {
     return {
-      error: 'Unauthorized'
+      error: 'Unauthorized',
     };
   }
 
@@ -28,18 +27,18 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         id,
         boardId,
         board: {
-          orgId
-        }
-      }
+          orgId,
+        },
+      },
     });
   } catch (error) {
     return {
-      error: 'Failed to delete.'
+      error: 'Failed to delete.',
     };
   }
 
   revalidatePath(`/list/${id}`);
-  redirect(`/list/${id}`);
+  return { data: list };
 };
 
 export const deleteList = CreateSafeAction(DeleteList, handler);
