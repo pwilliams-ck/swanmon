@@ -12,9 +12,10 @@ import { ListOptions } from './list-options';
 
 type ListHeaderProps = {
   data: List;
+  onAddCard: () => void;
 };
 
-export const ListHeader = ({ data }: ListHeaderProps) => {
+export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
   const [title, setTitle] = useState(data.title);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -37,15 +38,15 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
     onSuccess: (data) => {
       toast.success(`Renamed to "${data.title}"`, {
         className: 'mt-10',
-        position: 'top-right'
+        position: 'top-right',
       });
     },
     onError: (error) => {
       toast.error(error, {
         className: 'mt-10',
-        position: 'top-right'
+        position: 'top-right',
       });
-    }
+    },
   });
 
   const handleSubmit = (formData: FormData) => {
@@ -60,7 +61,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
     execute({
       title,
       id,
-      boardId
+      boardId,
     });
   };
 
@@ -102,7 +103,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {title}
         </div>
       )}
-      <ListOptions onAddCard={() => {}} data={data} />
+      <ListOptions onAddCard={onAddCard} data={data} />
     </div>
   );
 };

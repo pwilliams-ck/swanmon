@@ -3,7 +3,7 @@
 import { ElementRef, useRef } from 'react';
 import { List } from '@prisma/client';
 import { toast } from 'sonner';
-import { MoreHorizontal, X } from 'lucide-react';
+import { Copy, MoreHorizontal, Plus, Trash, X } from 'lucide-react';
 
 import { useAction } from '@/hooks/use-action';
 import { deleteList } from '@/services/actions/delete-list';
@@ -97,7 +97,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
           className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
           variant="ghost"
         >
-          Add card...
+          <Plus className="h-4 w-4 mr-2" /> Add card...
         </Button>
         <form action={onCopy}>
           <input hidden name="id" id="id" value={data.id} />
@@ -106,7 +106,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
             variant="ghost"
             className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
           >
-            Copy list
+            <Copy className="h-4 w-4 mr-2" /> Duplicate list
           </FormSubmit>
         </form>
         <Separator />
@@ -117,7 +117,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
             variant="ghost"
             className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
           >
-            Delete list
+            <Trash className="h-4 w-4 mr-2 text-rose-500" /> Delete list
           </FormSubmit>
         </form>
       </PopoverContent>
