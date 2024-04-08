@@ -4,7 +4,14 @@ import { ClerkProvider } from '@clerk/nextjs';
 const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider>
-      <Toaster />
+      <Toaster
+        theme="system"
+        invert
+        visibleToasts={9}
+        richColors
+        closeButton
+        offset={48}
+      />
       {children}
     </ClerkProvider>
   );
