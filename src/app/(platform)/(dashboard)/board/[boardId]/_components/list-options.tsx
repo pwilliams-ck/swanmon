@@ -100,8 +100,14 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
           <Plus className="h-4 w-4 mr-2" /> Add card...
         </Button>
         <form action={onCopy}>
-          <input hidden name="id" id="id" value={data.id} />
-          <input hidden name="boardId" id="boardId" value={data.boardId} />
+          <input hidden name="id" id="id" value={data.id} readOnly />
+          <input
+            hidden
+            name="boardId"
+            id="boardId"
+            value={data.boardId}
+            readOnly
+          />
           <FormSubmit
             variant="ghost"
             className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
@@ -111,8 +117,14 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
         </form>
         <Separator />
         <form action={onDelete}>
-          <input hidden name="id" id="id" value={data.id} />
-          <input hidden name="boardId" id="boardId" value={data.boardId} />
+          <input hidden name="id" id="id" value={data.id} readOnly />
+          <input
+            hidden
+            name="boardId"
+            id="boardId"
+            value={data.boardId}
+            readOnly
+          />
           <FormSubmit
             variant="ghost"
             className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
