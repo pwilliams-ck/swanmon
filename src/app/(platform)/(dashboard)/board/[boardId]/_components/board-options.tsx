@@ -20,10 +20,7 @@ type BoardOptionsProps = {
 export const BoardOptions = ({ id }: BoardOptionsProps) => {
   const { execute, isLoading } = useAction(deleteBoard, {
     onError: (error) => {
-      toast.error(error, {
-        className: 'mt-10',
-        position: 'top-right',
-      });
+      toast.error(error);
     },
   });
 

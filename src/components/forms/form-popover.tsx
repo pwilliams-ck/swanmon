@@ -6,7 +6,7 @@ import {
   Popover,
   PopoverClose,
   PopoverContent,
-  PopoverTrigger
+  PopoverTrigger,
 } from '@/components/ui/popover';
 import { useAction } from '@/hooks/use-action';
 import { createBoard } from '@/services/actions/create-board';
@@ -29,26 +29,20 @@ export const FormPopover = ({
   children,
   side = 'bottom',
   align,
-  sideOffset = 0
+  sideOffset = 0,
 }: FormPopoverProps) => {
   const router = useRouter();
   const closeRef = useRef<ElementRef<'button'>>(null);
 
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
-      toast.success('Board created', {
-        className: 'mt-10',
-        position: 'top-right'
-      });
+      toast.success('Board created');
       closeRef.current?.click();
       router.push(`/board/${data.id}`);
     },
     onError: (error) => {
-      toast.error(error, {
-        className: 'mt-10',
-        position: 'top-right'
-      });
-    }
+      toast.error(error);
+    },
   });
 
   const onSubmit = (formData: FormData) => {

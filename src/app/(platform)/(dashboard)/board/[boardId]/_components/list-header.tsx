@@ -36,16 +36,10 @@ export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
 
   const { execute, fieldErrors } = useAction(updateList, {
     onSuccess: (data) => {
-      toast.success(`Renamed to "${data.title}"`, {
-        className: 'mt-10',
-        position: 'top-right',
-      });
+      toast.success(`Renamed to "${data.title}"`);
     },
     onError: (error) => {
-      toast.error(error, {
-        className: 'mt-10',
-        position: 'top-right',
-      });
+      toast.error(error);
     },
   });
 

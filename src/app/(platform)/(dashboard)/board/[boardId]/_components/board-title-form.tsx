@@ -17,19 +17,13 @@ type BoardTitleFormProps = {
 export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
   const { execute, fieldErrors } = useAction(updateBoard, {
     onSuccess: (data) => {
-      toast.success(`Renamed to "${data.title}"`, {
-        className: 'mt-10',
-        position: 'top-right'
-      });
+      toast.success(`Renamed to "${data.title}"`);
       setTitle(data.title);
       disableEditing();
     },
     onError: (error) => {
-      toast.error(error, {
-        className: 'mt-10',
-        position: 'top-right'
-      });
-    }
+      toast.error(error);
+    },
   });
 
   const formRef = useRef<ElementRef<'form'>>(null);
@@ -55,7 +49,7 @@ export const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
 
     execute({
       title,
-      id: data.id
+      id: data.id,
     });
   };
 
