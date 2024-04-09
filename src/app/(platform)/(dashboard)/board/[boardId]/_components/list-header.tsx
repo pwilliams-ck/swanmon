@@ -65,7 +65,7 @@ export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      formRef.current?.requestSubmit();
+      disableEditing();
     }
   };
 
