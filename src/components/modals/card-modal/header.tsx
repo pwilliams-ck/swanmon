@@ -65,7 +65,7 @@ export const Header = ({ data }: HeaderProps) => {
             onBlur={onBlur}
             id="title"
             defaultValue={title}
-            className="font-semibold text-xl px-1 text-neutral-700 bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-primary mb-0.5 truncate"
+            className="font-semibold text-xl px-1 text-neutral-700 shadow-white bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-primary mb-0.5 truncate"
             errors={fieldErrors}
           />
         </form>
@@ -82,8 +82,8 @@ Header.Skeleton = function HeaderSkeleton() {
     <div className="flex items-start gap-x-3 mb-6">
       <Skeleton className="h-6 w-6 mt-1 bg-neutral-200" />
       <div>
-        <Skeleton className="h-6 w-24 mb-1 bg-neutral-200" />
-        <Skeleton className="h-6 w-12 bg-neutral-200" />
+        <Skeleton className="w-24 h-6 mb-1 bg-neutral-200" />
+        <Skeleton className="w-12 h-4 bg-neutral-200" />
       </div>
     </div>
   );

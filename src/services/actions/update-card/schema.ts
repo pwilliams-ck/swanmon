@@ -12,13 +12,15 @@ export const UpdateCard = z.object({
         message: 'Must be 1 or more characters',
       }),
   ),
-  title: z
-    .string({
-      required_error: 'Title is required',
-      invalid_type_error: 'Title is required',
-    })
-    .min(1, {
-      message: 'Must be 1 or more characters',
-    }),
+  title: z.optional(
+    z
+      .string({
+        required_error: 'Title is required',
+        invalid_type_error: 'Title is required',
+      })
+      .min(1, {
+        message: 'Must be 1 or more characters',
+      }),
+  ),
   id: z.string(),
 });
