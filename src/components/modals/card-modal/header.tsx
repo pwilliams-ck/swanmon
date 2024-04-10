@@ -6,8 +6,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
 
 import { CardWithList } from '@/types';
+import { useAction } from '@/hooks/use-action';
+import { updateCard } from '@/services/actions/update-card';
 import { FormInput } from '@/components/forms/form-input';
 import { Skeleton } from '@/components/ui/skeleton';
+import { toast } from 'sonner';
 
 type HeaderProps = {
   data: CardWithList;
@@ -16,6 +19,20 @@ type HeaderProps = {
 export const Header = ({ data }: HeaderProps) => {
   const queryClient = useQueryClient();
   const params = useParams();
+
+  const { execute, fieldErrors } = useAction(updateCard, {
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({
+        queryKey: ['card', data.id],
+      });
+
+      toast.success(`Renamed to "${data.title}"`);
+      setTitle(data.title);
+    },
+    onError: (error) => {
+      toast.error(error);
+    },
+  });
 
   const inputRef = useRef<ElementRef<'input'>>(null);
 
@@ -26,7 +43,16 @@ export const Header = ({ data }: HeaderProps) => {
   };
 
   const onSubmit = (formData: FormData) => {
-    console.log(formData.get('title'));
+    const title = formData.get('title') as string;
+    const boardId = params.boardId as string;
+
+    if (title === data.title) return;
+
+    execute({
+      title,
+      boardId,
+      id: data.id,
+    });
   };
 
   return (
@@ -40,6 +66,7 @@ export const Header = ({ data }: HeaderProps) => {
             id="title"
             defaultValue={title}
             className="font-semibold text-xl px-1 text-neutral-700 bg-transparent border-transparent relative -left-1.5 w-[95%] focus-visible:bg-white focus-visible:border-primary mb-0.5 truncate"
+            errors={fieldErrors}
           />
         </form>
         <p className="text-sm text-muted-foreground">
