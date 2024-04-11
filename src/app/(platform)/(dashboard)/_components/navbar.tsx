@@ -14,24 +14,6 @@ const Navbar = () => {
         <div className="hidden md:flex">
           <SwanMonLogo />
         </div>
-        <FormPopover align="start" side="bottom" sideOffset={18}>
-          <Button
-            variant="primary"
-            className="rounded hidden md:flex h-auto ml-2 py-1.5 px-3"
-          >
-            <span className="flex mr-2 ">Add</span>
-            <FileSpreadsheet className="flex h-4 w-4" />
-          </Button>
-        </FormPopover>
-        <FormPopover>
-          <Button
-            variant="primary"
-            size="sm"
-            className="rounded block md:hidden m-5"
-          >
-            <Plus className="h-4 w-4" />
-          </Button>
-        </FormPopover>
       </div>
       <div className="ml-auto m-2 flex items-center gap-x-4">
         <OrganizationSwitcher
@@ -45,9 +27,9 @@ const Navbar = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                textcolor: 'white'
-              }
-            }
+                textcolor: 'white',
+              },
+            },
           }}
         />
         <UserButton
@@ -56,9 +38,9 @@ const Navbar = () => {
             elements: {
               avatarBox: {
                 height: 30,
-                width: 30
-              }
-            }
+                width: 30,
+              },
+            },
           }}
         />
       </div>
