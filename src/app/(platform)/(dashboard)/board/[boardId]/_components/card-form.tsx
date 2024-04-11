@@ -92,7 +92,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
           size="sm"
           variant="ghost"
         >
-          <Plus className="h-4 w-4 mr-2" /> Add a card
+          <Plus className="h-4 w-4 mr-2" /> Add card
         </Button>
       </div>
     );
