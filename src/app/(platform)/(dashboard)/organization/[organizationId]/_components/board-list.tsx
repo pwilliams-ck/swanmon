@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { db } from '@/services/db';
 import { FormPopover } from '@/components/forms/form-popover';
 import { Hint } from '@/components/hint';
+import { MAX_FREE_BOARDS } from '@/constants/boards';
+import { getAvailableCount } from '@/services/org-limit';
 
 import { HelpCircle, User2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -18,12 +20,14 @@ export const BoardList = async () => {
 
   const boards = await db.board.findMany({
     where: {
-      orgId
+      orgId,
     },
     orderBy: {
-      createdAt: 'desc'
-    }
+      createdAt: 'desc',
+    },
   });
+
+  const availableCount = await getAvailableCount();
 
   return (
     <div className="space-y-4">
@@ -49,7 +53,7 @@ export const BoardList = async () => {
             className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75"
           >
             <p className="text-sm">Add new board</p>
-            <span>3 remaining</span>
+            <span>{`${MAX_FREE_BOARDS - availableCount} remaining`}</span>
             <Hint
               sideOffset={40}
               description={`Free Workspaces can have up to 3 open boards. For unlimited boards upgrade this workspace.`}
