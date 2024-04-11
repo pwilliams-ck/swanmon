@@ -8,13 +8,15 @@ import { CreateSafeAction } from '@/services/create-safe-action';
 
 import { InputType, ReturnType } from './types';
 import { CreateBoard } from './schema';
+import { createAuditLog } from '@/services/create-audit-log';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
 
   if (!userId || !orgId) {
     return {
-      error: 'Unauthorized'
+      error: 'Unauthorized',
     };
   }
 
@@ -31,7 +33,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     !imageLinkHTML
   ) {
     return {
-      error: 'Missing fields, failed to create board.'
+      error: 'Missing fields, failed to create board.',
     };
   }
 
@@ -46,12 +48,18 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         imageThumbUrl,
         imageFullUrl,
         imageUserName,
-        imageLinkHTML
-      }
+        imageLinkHTML,
+      },
+    });
+    await createAuditLog({
+      entityTitle: board.title,
+      entityId: board.id,
+      entityType: ENTITY_TYPE.BOARD,
+      action: ACTION.CREATE,
     });
   } catch (error) {
     return {
-      error: 'Error, please try again later.'
+      error: 'Error, please try again later.',
     };
   }
 

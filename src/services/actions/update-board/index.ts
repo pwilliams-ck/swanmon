@@ -8,6 +8,8 @@ import { CreateSafeAction } from '@/services/create-safe-action';
 
 import { InputType, ReturnType } from './types';
 import { UpdateBoard } from './schema';
+import { createAuditLog } from '@/services/create-audit-log';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -23,11 +25,17 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     board = await db.board.update({
       where: {
         id,
-        orgId
+        orgId,
       },
       data: {
-        title
-      }
+        title,
+      },
+    });
+    await createAuditLog({
+      entityTitle: board.title,
+      entityId: board.id,
+      entityType: ENTITY_TYPE.BOARD,
+      action: ACTION.UPDATE,
     });
   } catch (error) {
     return { error: 'Failed to update' };
