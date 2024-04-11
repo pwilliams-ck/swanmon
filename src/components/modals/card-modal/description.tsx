@@ -83,7 +83,7 @@ export const Description = ({ data }: DescriptionProps) => {
             <FormTextarea
               id="description"
               ref={textareaRef}
-              className="w-full mt-2"
+              className="w-full mt-2 h-48"
               placeholder="Please add a more detailed description..."
               defaultValue={data.description || undefined}
               errors={fieldErrors}
