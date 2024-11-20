@@ -1,10 +1,10 @@
-import { Footer } from './_components/footer'
-import { Navbar } from './_components/navbar'
+import { Footer } from './_components/footer';
+import { Navbar } from './_components/navbar';
 
 export default function LandingLayout({
-  children
+  children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <div className="h-full text-secondary bg-zinc-50">
@@ -12,5 +12,5 @@ export default function LandingLayout({
       <main className="pt-40 pb-20">{children}</main>
       <Footer />
     </div>
-  )
+  );
 }
