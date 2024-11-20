@@ -1,14 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { cn } from '@/services/utils'
-import localFont from 'next/font/local'
+import { cn } from '@/services/utils';
 
-import swanMonLogo from '../../public/swanmon-logo-color.png'
-
-const headingFont = localFont({
-  src: '../../public/fonts/font.woff2'
-})
+import swanMonLogo from '../../public/swanmon-logo-color.png';
 
 export function SwanMonLogo() {
   return (
@@ -21,10 +16,8 @@ export function SwanMonLogo() {
           width={70}
           priority
         />
-        <p className={cn('text-xl text-primary', headingFont.className)}>
-          SwanMon
-        </p>
+        <p className={cn('text-xl text-primary')}>SwanMon</p>
       </div>
     </Link>
-  )
+  );
 }
